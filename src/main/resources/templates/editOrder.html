@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+crossorigin="anonymous"></script>
+<h2>Edit Order</h2>
+<form th:method="POST" th:action="@{/tickets/update}">
+    <label for="movie">Movie:</label>
+    <select id="movie" name="idMovie">
+        <option th:each="movie: ${movies}"
+                th:value="${movie.getId()}"
+                th:text="${movie.getTitle()}"
+                th:selected="${movie.getId()==orderMovie.getId()}">
+        </option>
+    </select>
+    <input type="hidden" name="id" th:value="${id}">
+    <!--<input type="hidden" name="clientAddress" th:value="${order.getClientAddress()}">-->
+    <!--<input type="hidden" name="clientName" th:value="${order.getClientName()}">-->
+    <label for="numTickets">Number of tickets:</label>
+    <input id="numTickets" type="number" name="numTickets" min="1" max="10"
+           th:value="(${order} != null ? ${order.getNumberOfTickets()} : '')"><br/>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

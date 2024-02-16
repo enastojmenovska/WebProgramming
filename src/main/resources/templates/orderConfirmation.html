@@ -1,0 +1,88 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">CINEMA</h1>
+        </div>
+    </section>
+    <div class="container">
+        <!--<header>
+            <h1>Movie Order page - Order confirmation </h1>
+        </header>
+        <table>
+            <tr>
+                <th colspan="2">
+                    Your Order Status
+                </th>
+            </tr>
+            <tr>
+                <td><b>Client Name </b></td>
+                <td>
+                    <th:block th:text="${order.user.getName()} +' '+ ${order.user.getSurname()}"/>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Client IP Address</b></td>
+                <td>
+                    <th:block th:text="${clientAddress}"/>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Ticket for Movie</b></td>
+                <td>
+                    <th:block th:text="${order.movie.getTitle()}"/>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Number of tickets</b></td>
+                <td>
+                    <th:block th:text="${order.getNumberOfTickets()}"/>
+                </td>
+            </tr>
+        </table>-->
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <!--<thead>
+                    <tr>
+                        <th scope="col">Movie name</th>
+                        <th scope="col">Summary</th>
+                        <th scope="col">Rating</th>
+                        <th scope="col">Production</th>
+                    </tr>
+                    </thead>-->
+                    <tbody>
+                        <tr>
+                            <td colspan="2">
+                                Your Order Status
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Client Name </b></td>
+                            <td>
+                                <th:block th:text="${order.getUser().getUserFullName().getName()} +' '+ ${order.getUser().getUserFullName().getSurname()}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Client IP Address</b></td>
+                            <td>
+                                <th:block th:text="${clientAddress}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Ticket for Movie</b></td>
+                            <td>
+                                <th:block th:text="${order.movie.getTitle()}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Number of tickets</b></td>
+                            <td>
+                                <th:block th:text="${order.getNumberOfTickets()}"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div xmlns:th="http://thymeleaf.org">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">CINEMA</h1>
+            <h3 class="jumbotron-heading">Make order</h3>
+        </div>
+    </section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <form th:method="POST" th:action="@{/ticketOrder}">
+                    <div class="form-group">
+                        <label for="selectedMovie">Choose movie</label>
+                        <select id="selectedMovie" name="selectedMovie">
+                            <option th:each="movie: ${movies}"
+                                    th:value="${movie.getId()}"
+                                    th:text="${movie.getTitle()}">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="numTickets">Choose number of tickets</label>
+                        <input id="numTickets" type="number" name="numTickets" min="1" max="10">
+                    </div>
+                    <div class="form-group">
+                        <label for="dateTime">Chose date and time</label>
+                        <input id="dateTime" name="dateTime" type="datetime-local"/>
+                    </div>
+                    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
